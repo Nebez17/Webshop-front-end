@@ -1,0 +1,12 @@
+.products {
+  display: flex;
+  justify-content: center;
+  padding: 0 20px;
+}
+app-product-item {
+  width: 800px;
+}
+* {
+  margin:0;
+  padding:0;
+}

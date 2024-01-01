@@ -1,0 +1,10 @@
+.center-block {
+  text-align: center;
+}
+
+.img-responsive {
+  min-height: 200px;
+  width: auto; /* Maintain aspect ratio */
+  display: block; /* Ensure proper spacing around the image */
+  margin: 0 auto; /* Center the image horizontally */
+}
