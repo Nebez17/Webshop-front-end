@@ -9,9 +9,12 @@ export class ProductService {
   private productsUrl = "http://localhost:8081/product";
 
   constructor(private http: HttpClient) {
-
   }
-
+  public find(id: string): Observable<Product> {
+    const url = `${this.productsUrl}`;
+    return this.http.get<Product>(`${url}/${id}`);
+    console.log(url + id)
+  }
   getProducts(categoryId?: string): Observable<Product[]> {
     const url = `${this.productsUrl}`;
     const params: { categoryId?: string } = {};
