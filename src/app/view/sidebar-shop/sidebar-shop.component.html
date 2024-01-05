@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="sidebar">
+    <h2>Categories</h2>
+    <div>
+      <input type="checkbox" id="category1" (change)="toggleCategory('category1')">
+      <label for="category1">Category 1</label>
+    </div>
+    <div>
+      <input type="checkbox" id="category2" (change)="toggleCategory('category2')">
+      <label for="category2">Category 2</label>
+    </div>
+    <div>
+      <input type="checkbox" id="category3" (change)="toggleCategory('category3')">
+      <label for="category3">Category 3</label>
+    </div>
+      <button type="button" (click)="toggleCreateProductVisibility()">Create Product</button>
+    </div>
+    <div class="create-product-container">
+      <app-create-product *ngIf="isCreateProductVisible"></app-create-product>
+  </div>
+</div>

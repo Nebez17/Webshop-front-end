@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 400px;
+  margin-left: 10px;
+  background-color: #f4f4f4;
+}
+
+.sidebar {
+  background-color: #f4f4f4;
+  padding: 20px;
+  border: 2px solid black;
+
+  h2 {
+    color: #333;
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  input[type="checkbox"] {
+    margin-right: 10px;
+  }
+
+  label {
+    cursor: pointer;
+  }
+
+  button {
+    background-color: #007bff;
+    color: #fff;
+
+    font-size: 20px; /* Adjusted font-size for better visibility */
+    border: 2px solid black;
+    cursor: pointer;
+  }
+}

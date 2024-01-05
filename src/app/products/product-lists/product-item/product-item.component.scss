@@ -1,10 +1,30 @@
 .center-block {
   text-align: center;
 }
-
 .img-responsive {
   min-height: 200px;
   width: auto; /* Maintain aspect ratio */
   display: block; /* Ensure proper spacing around the image */
   margin: 0 auto; /* Center the image horizontally */
+}
+.product {
+  padding-top: 30px;
+  min-height: 200px;
+  width: auto; /* Maintain aspect ratio */
+  display: inline-block; /* Display products next to each other */
+  margin: 0 10px 20px; /* Adjust the margin as needed to provide spacing between products */
+  padding-left: 20px;
+
+}
+
+/* Set the column width for medium and extra-large screens */
+.col-md-4,
+.col-xl-4 {
+  width: calc(33.33% - 20px); /* Adjust the width and margin as needed */
+  float: left;
+}
+
+/* Clear the float after every third product to prevent layout issues */
+.product:nth-child(3n + 1) {
+  clear: left;
 }

@@ -1,12 +1,23 @@
 .products {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end; /* Align products to the right */
   padding: 0 20px;
-}
-app-product-item {
-  width: 800px;
-}
-* {
-  margin:0;
-  padding:0;
+  position: relative;
+  z-index: 1; /* Ensure products are on top of the image */
+
+  img {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    height: auto;
+    object-fit: cover;
+  }
+
+  app-product-item {
+    width: 800px;
+    margin-top: 340px;
+    margin-right: 150px; /* Add margin to the right of the product items */
+  }
 }

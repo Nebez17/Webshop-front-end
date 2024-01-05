@@ -1,0 +1,11 @@
+.app-header-component {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100; /* Adjust the z-index as needed */
+}
+* {
+  margin:0;
+  padding:0;
+}

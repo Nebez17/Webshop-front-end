@@ -23,4 +23,9 @@ export class ProductService {
     }
     return this.http.get<Product[]>(url, { params });
   }
+
+  public addProduct(product: Product): Observable<Product> {
+    return this.http.post<Product>(`${this.productsUrl}`, product);
+  }
+
 }
