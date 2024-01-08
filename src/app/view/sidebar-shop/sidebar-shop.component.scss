@@ -33,8 +33,11 @@
     background-color: #007bff;
     color: #fff;
 
-    font-size: 20px; /* Adjusted font-size for better visibility */
-    border: 2px solid black;
+    font-size: 15px; /* Adjusted font-size for better visibility */
+    border: none;
     cursor: pointer;
+    padding: 8px; /* Reduced padding */
+    font-weight: bold;
+    border-radius: 10px
   }
 }

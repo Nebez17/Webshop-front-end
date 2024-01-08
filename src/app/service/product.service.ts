@@ -13,7 +13,6 @@ export class ProductService {
   public find(id: string): Observable<Product> {
     const url = `${this.productsUrl}`;
     return this.http.get<Product>(`${url}/${id}`);
-    console.log(url + id)
   }
   getProducts(categoryId?: string): Observable<Product[]> {
     const url = `${this.productsUrl}`;
@@ -28,4 +27,10 @@ export class ProductService {
     return this.http.post<Product>(`${this.productsUrl}`, product);
   }
 
+  public deleteProduct(id: string){
+    return this.http.delete<void>(`${this.productsUrl}/${id}`);
+  }
+  updateProduct(id: string, product: Product): Observable<Product> {
+    return this.http.put<Product>(`${this.productsUrl}/${id}`, product);
+  }
 }

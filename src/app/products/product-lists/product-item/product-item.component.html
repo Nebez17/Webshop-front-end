@@ -2,13 +2,12 @@
   <div *ngFor="let product of products; let i = index" [ngClass]="'product-' + i" class="col-md-4 col-xl-4">
     <div class="product">
       <td>
-      <a [routerLink]="['/shop', product.id]">
-      <img src="{{product.imageURL}}" alt="{{product.productName}}" class="img-responsive" style="max-height: 50px;">
-      <h4 class="list-group-item-heading">{{product.productName}}</h4>
-      <p class="list-group-item-text">${{product.price}}</p>
-      </a>
+        <a [routerLink]="['/shop', product.id]">
+          <img src="{{product.imageURL}}" alt="{{product.productName}}" class="img-responsive">
+          <h4 class="list-group-item-heading">{{product.productName}}</h4>
+          <p class="list-group-item-text">${{product.price}}</p>
+        </a>
       </td>
     </div>
   </div>
 </div>
-

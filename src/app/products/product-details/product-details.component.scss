@@ -1,14 +1,17 @@
 .mat-card {
   display: inline-block;
-  margin: 10px;
+  margin: 40px;
   vertical-align: top;
+  padding-top: 150px;
+  position: fixed;
+  align-items: center;
 }
 
 .mat-card-image {
-  width: 30%; /* Adjust the width according to your preference */
+  width: 30%;
   height: auto;
-  float: left; /* Align the image to the left */
-  margin-right: 10px; /* Add some space between the image and text */
+  float: left;
+  margin-right: 10px;
 }
 
 .mat-card-image img {
@@ -19,11 +22,42 @@
 
 .mat-card-text {
   padding: 10px;
-  text-align: left; /* Align the text to the left */
-  overflow: hidden; /* Clear the float */
+  text-align: left;
+  overflow: hidden;
 }
 
 .mat-card-text h2 {
   margin-top: 0;
 }
+
+.modal {
+  display: none; /* Hide by default */
+  position: fixed; /* Use fixed positioning */
+  left: 50%; /* Position at half the width of the viewport */
+  top: 50%; /* Position at half the height of the viewport */
+  transform: translate(-50%, -50%); /* Offset the modal to center it */
+  z-index: 1000; /* Ensure it's above other elements */
+  width: 80%; /* Adjust the width as needed */
+  max-width: 600px; /* Max width for larger screens */
+  background: white; /* Background color */
+  padding: 20px; /* Padding around the content */
+  border-radius: 8px; /* Optional: for rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: for shadow effect */
+}
+
+.modal.show {
+  display: block; /* Show when this class is applied */
+}
+
+/* Style the backdrop to cover the entire screen */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  z-index: 999; /* Behind the modal but above other elements */
+}
+
 

@@ -1,33 +1,65 @@
 <!-- product-form.component.html -->
-
 <div *ngIf="isFormVisible" class="container">
   <button class="close-button" (click)="closeForm()">X</button>
   <h2>Product Form</h2>
-  <form (ngSubmit)="onSubmit()">
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="product-form">
     <div class="form-group">
       <label for="productName">Product Name: </label>
-      <input type="text" id="productName" class="form-control" placeholder="Product Name" [(ngModel)]="product.productName" required>
+      <input type="text" id="productName" class="form-control" placeholder="Product Name" formControlName="productName">
+      <div *ngIf="productForm.get('productName').hasError('required') && productForm.get('productName').touched">
+        <small class="error-message">Product Name is required.</small>
+      </div>
     </div>
     <div class="form-group">
       <label for="description">Product Description:</label>
-      <textarea id="description" class="form-control" placeholder="Product Description" [(ngModel)]="product.description" required></textarea>
+      <textarea id="description" class="form-control" placeholder="Product Description" formControlName="description"></textarea>
+      <div *ngIf="productForm.get('description').hasError('required') && productForm.get('description').touched">
+        <small class="error-message">Product Description is required.</small>
+      </div>
     </div>
     <div class="form-group">
       <label for="price">Product Price:</label>
-      <input type="number" id="price" class="form-control" placeholder="Product Price" [(ngModel)]="product.price" required>
+      <input type="number" id="price" class="form-control" placeholder="Product Price" formControlName="price">
+      <div *ngIf="productForm.get('price').hasError('required') && productForm.get('price').touched">
+        <small class="error-message">Product Price is required.</small>
+      </div>
+      <div *ngIf="productForm.get('price').hasError('min') && productForm.get('price').touched">
+        <small class="error-message">Product Price must be a positive number.</small>
+      </div>
     </div>
     <div class="form-group">
       <label for="stock">Product Stock:</label>
-      <input type="number" id="stock" class="form-control" placeholder="Product Stock" [(ngModel)]="product.stock" required>
+      <input type="number" id="stock" class="form-control" placeholder="Product Stock" formControlName="stock">
+      <div *ngIf="productForm.get('stock').hasError('required') && productForm.get('stock').touched">
+        <small class="error-message">Product Stock is required.</small>
+      </div>
+      <div *ngIf="productForm.get('stock').hasError('min') && productForm.get('stock').touched">
+        <small class="error-message">Product Stock must be a positive number.</small>
+      </div>
     </div>
     <div class="form-group">
       <label for="imageURL">Product Image URL:</label>
-      <input type="text" id="imageURL" class="form-control" placeholder="Product Image URL" [(ngModel)]="product.imageURL" required>
+      <input type="text" id="imageURL" class="form-control" placeholder="Product Image URL" formControlName="imageURL">
+      <div *ngIf="productForm.get('imageURL').hasError('required') && productForm.get('imageURL').touched">
+        <small class="error-message">Product Image URL is required.</small>
+      </div>
     </div>
     <div class="form-group">
-      <label for="category">Product Category:</label>
-      <input type="text" id="category" class="form-control" placeholder="Product Category" [(ngModel)]="product.category" required>
+      <label>Product Category:</label>
+      <div class="checkbox-group">
+        <div *ngFor="let option of categoryOptions" class="checkbox-item">
+          <input type="checkbox" id="{{ option }}" [formControl]="getCategoryControl(option)" (change)="onCategoryChange(option)">
+          <label for="{{ option }}">{{ option }}</label>
+        </div>
+      </div>
+      <div *ngIf="productForm.get('category').hasError('required') && productForm.get('category').touched">
+        <small class="error-message">Please select at least one category.</small>
+      </div>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
+
+    <div *ngIf="showGeneralErrorMessage" class="alert alert-danger error-message">
+      Please fix the errors in the form before submitting.
+    </div>
   </form>
 </div>
