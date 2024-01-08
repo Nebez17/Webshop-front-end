@@ -12,6 +12,13 @@ import {AppRoutingModule} from "./app-routing.module";
 import { StartViewComponent } from './view/start-view/start-view.component';
 import { SidebarShopComponent } from './view/sidebar-shop/sidebar-shop.component';
 import { CreateProductComponent } from './view/sidebar-shop/create-product/create-product.component';
+import {MatIconModule} from "@angular/material/icon";
+import { LoginScreenComponent } from './view/login-screen/login-screen.component';
+import {MatCardModule} from "@angular/material/card";
+import {MatInputModule} from "@angular/material/input";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatButtonModule} from "@angular/material/button";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 
 
@@ -26,6 +33,7 @@ import { CreateProductComponent } from './view/sidebar-shop/create-product/creat
     StartViewComponent,
     SidebarShopComponent,
     CreateProductComponent,
+    LoginScreenComponent,
   ],
   imports: [
     HttpClientModule,
@@ -33,6 +41,12 @@ import { CreateProductComponent } from './view/sidebar-shop/create-product/creat
     FormsModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    MatIconModule,
+    MatCardModule,
+    MatInputModule,
+    MatButtonModule,
+    BrowserAnimationsModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

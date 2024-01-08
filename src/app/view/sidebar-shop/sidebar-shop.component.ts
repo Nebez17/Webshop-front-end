@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {ProductService} from "../../service/product.service";
+import {UserStorageService} from "../../service/userStorage.service";
 
 @Component({
   selector: 'app-sidebar-shop',
@@ -8,7 +9,9 @@ import {ProductService} from "../../service/product.service";
 })
 export class SidebarShopComponent {
   showCreateProduct: boolean = false;
-  constructor(private productService: ProductService) {
+  isCreateProductVisible: boolean = false;
+  isAdmin: boolean = false;
+  constructor(private userStorageService: UserStorageService) {
   }
   selectedCategories: string[] = [];
 
@@ -23,11 +26,19 @@ export class SidebarShopComponent {
 
     console.log('Selected Categories:', this.selectedCategories);
   }
-  isCreateProductVisible: boolean = false;
+
+  ngOnInit(): void {
+    this.isAdmin = this.userStorageService.isAdmin();
+  }
 
   toggleCreateProductVisibility() {
     // Toggle the visibility flag
     this.isCreateProductVisible = !this.isCreateProductVisible;
+  }
+  toggleShowCreateProduct(): void {
+    if (this.isAdmin) {
+      this.showCreateProduct= !this.showCreateProduct;
+    }
   }
 
 }

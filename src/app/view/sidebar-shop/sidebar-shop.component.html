@@ -13,9 +13,11 @@
       <input type="checkbox" id="category3" (change)="toggleCategory('category3')">
       <label for="category3">Sticks</label>
     </div>
+    <div *ngIf="isAdmin">
       <button type="button" (click)="toggleCreateProductVisibility()">Create Product</button>
     </div>
     <div class="create-product-container">
       <app-create-product *ngIf="isCreateProductVisible"></app-create-product>
+    </div>
   </div>
 </div>

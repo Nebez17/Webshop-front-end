@@ -3,7 +3,7 @@ import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Product} from "../model/product.model";
-// const BASIC_URL = environment['BASIC_URL'];
+
 @Injectable({ providedIn: 'root' })
 export class ProductService {
   private productsUrl = "http://localhost:8081/product";

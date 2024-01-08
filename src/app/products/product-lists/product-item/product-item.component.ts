@@ -17,7 +17,7 @@ export class ProductItemComponent {
       data => {
         this.products = data;
       });
-    this.productService.getProducts('9a195490-6902-4f35-99c0-b78cf8c739b3').subscribe(
+    this.productService.getProducts('15c60900-275f-4eae-bb09-ebc427e37ec2').subscribe(
       products => {
         this.products = products;
         console.log(products);
