@@ -22,6 +22,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatBadgeModule} from "@angular/material/badge";
 import { CartComponent } from './view/cart/cart.component';
 import { CartItemComponent } from './view/cart/cart-item/cart-item.component';
+import { SignUpComponent } from './view/sign-up/sign-up.component';
 
 
 
@@ -39,6 +40,7 @@ import { CartItemComponent } from './view/cart/cart-item/cart-item.component';
     LoginScreenComponent,
     CartComponent,
     CartItemComponent,
+    SignUpComponent,
   ],
   imports: [
     HttpClientModule,

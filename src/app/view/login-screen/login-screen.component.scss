@@ -1,13 +1,86 @@
 .container {
   background-color: white; /* Sets the background color to white */
-  padding: 400px; /* Example padding, adjust as needed */
+  padding: 300px; /* Example padding, adjust as needed */
 }
-
-/* Optional: Additional styling for .column and mat-card if needed */
-.column {
-  /* Add styles here if you want specific styling for the column */
+.no-decoration {
+  text-decoration: none;
+  color: #333333;
 }
+h1.login {
+  text-align: center;
+}
+p.text{
+  text-align: center;
+}
+.image {
+  display: flex;
+  justify-content: flex-end; /* Align products to the right */
+  padding: 0 20px;
+  position: relative;
+  z-index: 1; /* Ensure products are on top of the image */
 
-mat-card {
-  /* Add styles here if you want specific styling for the mat-card */
+  img {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    height: auto;
+    object-fit: cover;
+  }
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  .column {
+    text-align: center;
+
+    mat-card {
+      width: 400px;
+      padding: 20px;
+
+      mat-card-content {
+        .login {
+          font-size: 24px;
+          margin-bottom: 10px;
+        }
+
+        .text {
+          font-size: 16px;
+          color: #555;
+          margin-bottom: 20px;
+        }
+
+        form {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          .login-form-input-field {
+            width: 100%;
+            margin-bottom: 15px;
+
+            // Add padding and increase input height
+            mat-form-field {
+              padding: 10px;
+              input {
+                height: 40px; // Increase input height
+              }
+            }
+          }
+
+          .login-form-submit {
+            margin-top: 15px;
+
+            .login-form-submit-button {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
 }

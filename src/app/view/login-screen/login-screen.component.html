@@ -1,8 +1,12 @@
+<div class="image">
+  <img src="assets/Img/loginscreenPicture.webp" alt="Background Image">
+</div>
 <div class="container">
-
   <div class="column">
     <mat-card>
       <mat-card-content>
+        <h1 class="login">Login</h1>
+        <p class="text">Please enter your e-mail and password:</p>
         <form [formGroup]="loginForm" class="login-form">
           <mat-form-field appearance="outline" class="login-form-input-field">
             <mat-label>E-mail</mat-label>
@@ -30,6 +34,7 @@
           </div>
         </form>
       </mat-card-content>
+      <small>Don't have an account? <a routerLink="/sign-up" class="no-decoration">Create one</a></small>
     </mat-card>
   </div>
 </div>
