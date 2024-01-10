@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {ProductService} from "../../../service/product.service";
 import {Product} from "../../../model/product.model";
+import {CartService} from "../../../service/cart.service";
 
 @Component({
   selector: 'app-product-item',
@@ -9,7 +10,7 @@ import {Product} from "../../../model/product.model";
 })
 export class ProductItemComponent {
   public products: Product[] = []
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService, private cartService: CartService) {
   }
 
   ngOnInit() {
@@ -23,4 +24,8 @@ export class ProductItemComponent {
         console.log(products);
       });
   }
+  addToCart(product: Product){
+    this.cartService.addToCart(product)
+  }
+
 }

@@ -11,6 +11,7 @@ export class HeaderComponentComponent implements OnInit, OnDestroy {
   isNavbarScrolled: boolean = false;
   isLoggedIn: boolean;
   private loginSubscription: Subscription;
+  cartItemCount: number = 0;
 
 
   @HostListener('window:scroll', [])
@@ -18,12 +19,23 @@ export class HeaderComponentComponent implements OnInit, OnDestroy {
     // Detect the scroll position and toggle the class accordingly
     this.isNavbarScrolled = window.scrollY > 0;
   }
-  constructor(private userStorageService: UserStorageService) {}
+  constructor(private userStorageService: UserStorageService) {
+    this.updateCartItemCount();
+  }
 
   ngOnInit(): void {
     this.loginSubscription = this.userStorageService.isLoggedInObservable.subscribe(status => {
       this.isLoggedIn = status;
     });
+  }
+  updateCartItemCount() {
+    const storedCart = JSON.parse(localStorage.getItem('cartItems') || '[]');
+
+    if (Array.isArray(storedCart)) {
+      this.cartItemCount = storedCart.length;
+    } else {
+      this.cartItemCount = 0;
+    }
   }
 
   logout(): void {

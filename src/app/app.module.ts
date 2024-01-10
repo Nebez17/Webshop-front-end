@@ -19,6 +19,8 @@ import {MatInputModule} from "@angular/material/input";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MatBadgeModule} from "@angular/material/badge";
+import { CartComponent } from './view/cart/cart.component';
 
 
 
@@ -34,6 +36,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     SidebarShopComponent,
     CreateProductComponent,
     LoginScreenComponent,
+    CartComponent,
   ],
   imports: [
     HttpClientModule,
@@ -46,7 +49,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     MatInputModule,
     MatButtonModule,
     BrowserAnimationsModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatBadgeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
