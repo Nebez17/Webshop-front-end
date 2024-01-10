@@ -1,6 +1,7 @@
 import {Component, HostListener, OnDestroy, OnInit} from '@angular/core';
 import {UserStorageService} from "../../service/userStorage.service";
 import {Subscription} from "rxjs";
+import {CartService} from "../../service/cart.service";
 
 @Component({
   selector: 'app-header-component',
@@ -11,6 +12,7 @@ export class HeaderComponentComponent implements OnInit, OnDestroy {
   isNavbarScrolled: boolean = false;
   isLoggedIn: boolean;
   private loginSubscription: Subscription;
+  private cartItemCountSubscription: Subscription;
   cartItemCount: number = 0;
 
 
@@ -19,24 +21,21 @@ export class HeaderComponentComponent implements OnInit, OnDestroy {
     // Detect the scroll position and toggle the class accordingly
     this.isNavbarScrolled = window.scrollY > 0;
   }
-  constructor(private userStorageService: UserStorageService) {
-    this.updateCartItemCount();
+  constructor(private userStorageService: UserStorageService,
+              private cartService: CartService) {
+
   }
 
   ngOnInit(): void {
     this.loginSubscription = this.userStorageService.isLoggedInObservable.subscribe(status => {
       this.isLoggedIn = status;
     });
-  }
-  updateCartItemCount() {
-    const storedCart = JSON.parse(localStorage.getItem('cartItems') || '[]');
 
-    if (Array.isArray(storedCart)) {
-      this.cartItemCount = storedCart.length;
-    } else {
-      this.cartItemCount = 0;
-    }
+    this.cartItemCountSubscription = this.cartService.getCartItemCountObservable().subscribe(count => {
+      this.cartItemCount = count;
+    });
   }
+
 
   logout(): void {
     this.userStorageService.signOut();
@@ -44,6 +43,9 @@ export class HeaderComponentComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.loginSubscription.unsubscribe();
+    if (this.cartItemCountSubscription) {
+      this.cartItemCountSubscription.unsubscribe();
+    }
   }
 
 }

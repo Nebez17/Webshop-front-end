@@ -1,0 +1,17 @@
+.cart-container {
+  padding-top: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%; // Adjust this as needed
+  button {
+    margin-left: 5px;
+    padding: 5px 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+}

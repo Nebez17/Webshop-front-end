@@ -7,7 +7,6 @@
       <ul class="nav navbar-nav">
         <li><a routerLink="/shop">Shop</a></li>
         <li><a href="#">Admin panel</a></li>
-        <li><a href="#">Collaborations</a></li>
         <li *ngIf="!isLoggedIn"><a routerLink="/login"><mat-icon>account_circle</mat-icon></a></li>
         <li *ngIf="isLoggedIn"><button (click)="logout()">Log Out</button></li>
         <li>
