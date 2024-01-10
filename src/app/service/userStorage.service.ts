@@ -49,11 +49,9 @@ export class UserStorageService {
 
 
   public signOut(): void {
-    window.localStorage.removeItem(TOKEN);
-    window.localStorage.removeItem(USER);
+    localStorage.clear();
     this.isLoggedInSubject.next(false); // Notify about the change in login status
   }
-  s
   get isLoggedInObservable(): Observable<boolean> {
     return this.isLoggedInSubject.asObservable();
   }

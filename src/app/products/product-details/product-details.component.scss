@@ -1,48 +1,134 @@
 .mat-card {
-  display: inline-block;
-  margin: 40px;
-  vertical-align: top;
-  padding-top: 150px;
-  position: fixed;
-  align-items: center;
+  display: flex;
+  margin-top: 220px;
+  margin-left: calc(50% - 420px); /* Adjusting left margin */
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  text-align: center;
+  padding-top: 35px;
+  height: 300px;
+  width: 800px;
+  align-items: center; /* Assuming you want to vertically center the contents */
+  justify-content: space-between;
+}
+.image-right {
+  order: 3; /* Ensures the image is placed at the end */
+  max-width: 100px; /* Adjust as needed */
+  height: 300px; /* Maintain aspect ratio */
+  margin-top: -30px;
+
 }
 
 .mat-card-image {
-  width: 30%;
-  height: auto;
+  display: flex;
+  max-width: 200px;
+  justify-content: center;
+  height: 200px;
+  padding-left: 10px;
+  vertical-align: center;
   float: left;
-  margin-right: 10px;
-}
+  padding-bottom: 120px;
 
-.mat-card-image img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
+  img {
+    display: flex;
+    max-width: 200px;
+    height: 250px;
+    float: left;
+    margin-right: 10px;
+    justify-content: center;
+  }
 }
 
 .mat-card-text {
-  padding: 10px;
+  padding: 20px; // Adjust padding for better spacing inside the card
+
+  h2 {
+    margin-top: 0;
+    margin-bottom: 10px; // Space between the title and the description
+  }
+
+  p {
+    margin-bottom: 20px; // Space above the buttons
+  }
+
+  .button-container {
+    position: absolute;
+
+    justify-content: flex-end;
+    float: right;
+    left: 24%;
+    top: 74%;
+    transform: translate(-50%, -50%);
+  }
+  .update-button, .delete-button {
+    margin-top: 200px;
+
+
+    padding: 4px 4px; // Padding inside the buttons
+    border: none; // Remove default browser styling
+    border-radius: 4px; // Rounded corners for the buttons
+    cursor: pointer; // Cursor change to indicate clickable area
+    background-color: #007bff;
+    color: white;
+    font-size: 11px;
+
+    &:hover {
+      background-color: #0056b3; // Darker shade on hover
+    }
+  }
+
+  .delete-button {
+    background-color: #dc3545; // Different color for the delete button
+
+    &:hover {
+      background-color: #bd2130; // Darker shade on hover
+    }
+  }
+}
+.product-card {
+  display: inline-block;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
   text-align: left;
-  overflow: hidden;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-40%, -50%); /* Adjust translate values */
+  max-width: 300px;  /* Maximum width of the card */
+  width: 100%;  /* Responsive width */
+  box-sizing: border-box;
+
+
+
+  h2 {
+    margin-top: 0;
+    color: #333;
+    font-size: 1.5em;
+  }
+
+  p {
+    color: #666; /* Paragraph text color */
+    font-size: 1em;
+  }
 }
 
-.mat-card-text h2 {
-  margin-top: 0;
-}
 
 .modal {
-  display: none; /* Hide by default */
-  position: fixed; /* Use fixed positioning */
-  left: 50%; /* Position at half the width of the viewport */
-  top: 50%; /* Position at half the height of the viewport */
-  transform: translate(-50%, -50%); /* Offset the modal to center it */
-  z-index: 1000; /* Ensure it's above other elements */
-  width: 80%; /* Adjust the width as needed */
-  max-width: 600px; /* Max width for larger screens */
-  background: white; /* Background color */
-  padding: 20px; /* Padding around the content */
-  border-radius: 8px; /* Optional: for rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: for shadow effect */
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  width: 80%;
+  max-width: 600px;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .modal.show {
@@ -56,8 +142,37 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
-  z-index: 999; /* Behind the modal but above other elements */
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.add-to-cart-btn {
+  background-color: black;
+  color: white;
+  padding: 10px 110px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  margin-right: 80px;
+  margin-bottom: 30px;
+
+  &:hover {
+    background-color: #333; // Slightly lighter black on hover
+    color: #ddd; // Slightly darker white on hover
+  }
+
+  &:active {
+    background-color: #000; // Pure black when clicked
+    color: #fff;
+  }
+
+  &:disabled {
+    background-color: #555;
+    color: #ccc;
+    cursor: not-allowed;
+  }
 }
 
 

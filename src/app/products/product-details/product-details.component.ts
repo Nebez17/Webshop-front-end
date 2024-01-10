@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {ProductService} from "../../service/product.service";
 import {Product} from "../../model/product.model";
+import {CartService} from "../../service/cart.service";
 
 @Component({
   selector: 'app-product-details',
@@ -13,17 +14,9 @@ export class ProductDetailsComponent implements OnInit{
   product: Product;
   showUpdateModal: boolean = false;
 
-  productToUpdate = {
-    id:"",
-    description:"",
-    productName:"",
-    price: 0,
-    imageURL:"",
-    stock:0,
-    category:[]
-  }
+  productToUpdate :Product
 
-  constructor(private route: ActivatedRoute, private productService: ProductService) {
+  constructor(private route: ActivatedRoute, private productService: ProductService, private cartService:CartService) {
   }
   ngOnInit(): void {
     this.productId = this.route.snapshot.paramMap.get('productId');
@@ -50,11 +43,12 @@ export class ProductDetailsComponent implements OnInit{
   }
 
 
-  public updateProduct(){
+  public updateProduct() {
     this.productService.updateProduct(this.productId, this.productToUpdate).subscribe(
       (resp) => {
       },
       (err) => {
+        console.error('Error updating product:', err);
       }
     );
   }
@@ -65,5 +59,8 @@ export class ProductDetailsComponent implements OnInit{
 
   public closeEditModal(): void {
     this.showUpdateModal = false;
+  }
+  addToCart(product: Product){
+    this.cartService.addToCart(product)
   }
 }

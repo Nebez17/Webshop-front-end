@@ -7,8 +7,16 @@
       <ul class="nav navbar-nav">
         <li><a routerLink="/shop">Shop</a></li>
         <li><a href="#">Admin panel</a></li>
+      </ul>
+    </div>
+
+    <!-- Move cart and login/logout to the top right -->
+    <div class="top-right-buttons">
+      <ul class="nav navbar-nav">
         <li *ngIf="!isLoggedIn"><a routerLink="/login"><mat-icon>account_circle</mat-icon></a></li>
-        <li *ngIf="isLoggedIn"><button (click)="logout()">Log Out</button></li>
+        <li *ngIf="isLoggedIn">
+          <button class="logout-button" (click)="logout()">Log Out</button>
+        </li>
         <li>
           <a routerLink="/cart">
             <mat-icon [matBadge]="cartItemCount !== 0 ? cartItemCount : null" matBadgeColor="warn">shopping_cart</mat-icon>

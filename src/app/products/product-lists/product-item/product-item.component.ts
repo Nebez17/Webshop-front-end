@@ -18,11 +18,11 @@ export class ProductItemComponent {
       data => {
         this.products = data;
       });
-    this.productService.getProducts('15c60900-275f-4eae-bb09-ebc427e37ec2').subscribe(
-      products => {
-        this.products = products;
-        console.log(products);
-      });
+    // this.productService.getProducts('15c60900-275f-4eae-bb09-ebc427e37ec2').subscribe(
+    //   products => {
+    //     this.products = products;
+    //     console.log(products);
+    //   });
   }
   addToCart(product: Product){
     this.cartService.addToCart(product)

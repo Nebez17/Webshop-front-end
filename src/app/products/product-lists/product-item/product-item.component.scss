@@ -3,20 +3,29 @@
 }
 
 .img-responsive {
-  height: 200px; /* Fixed height for all images */
-  width: 200px; /* Fixed width for all images */
-  object-fit: cover; /* Will cover the area, might crop the image */
+  flex-shrink: 0;
+  max-width: 100px;
+  height: 150px;
   display: block;
   margin: 0 auto;
 }
+.product a {
+  text-decoration: none; // Removes the underline from links
+
+  .list-group-item-heading, .list-group-item-text {
+    color: black; // Sets the color to #333333
+    // Any other styling you want to apply to these elements
+  }
+}
 
 .product {
-  padding-top: 30px;
-  height: 260px; /* Fixed height for the container */
+  padding-top: 50px;
+  height: 220px; /* Fixed height for the container */
   display: inline-block;
   margin: 0 10px 20px;
   padding-left: 20px;
   text-align: center; /* Centering the text for each product */
+
 }
 
 .col-md-4, .col-xl-4 {
@@ -26,4 +35,31 @@
 
 .product:nth-child(3n + 1) {
   clear: left;
+}
+button {
+  background-color: black;
+  color: white;
+  padding: 10px 15px;
+  margin: 5px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+
+  &:hover {
+    background-color: #333; // Slightly lighter black on hover
+    color: #ddd; // Slightly darker white on hover
+  }
+
+  &:active {
+    background-color: #000; // Pure black when clicked
+    color: #fff; // Pure white when clicked
+  }
+
+  &:disabled {
+    background-color: #555;
+    color: #ccc;
+    cursor: not-allowed;
+  }
 }

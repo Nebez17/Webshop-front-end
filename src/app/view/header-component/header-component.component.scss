@@ -70,3 +70,70 @@
     }
   }
 }
+.top-right-buttons {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 10px; // Adjust as needed for spacing
+
+  ul.nav {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin-right: 10px; // Spacing between buttons
+      padding: 0;
+
+      a {
+        font-size: 20px; // Match font size from .custom-navbar
+        color: black; // Match text color
+        text-decoration: none; // Remove underline from links
+        line-height: 80px; // Vertically center text in line with navbar brand
+
+        &:hover, &:focus {
+          color: #a0a0a0; // Hover and focus color
+        }
+      }
+
+      &.active a {
+        color: #a0a0a0; // Active link color
+      }
+    }
+  }
+}
+
+/* Optional: Add some margin to the individual buttons for spacing */
+.top-right-buttons ul.nav li {
+  margin-right: 10px;
+}
+.logout-button {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  margin-top: -4px;
+
+  &:hover {
+    background-color: #333; // Slightly lighter black on hover
+    color: #ddd; // Slightly darker white on hover
+  }
+
+  &:active {
+    background-color: #000; // Pure black when clicked
+    color: #fff; // Pure white when clicked
+  }
+
+  &:disabled {
+    background-color: #555;
+    color: #ccc;
+    cursor: not-allowed;
+  }
+}
+
