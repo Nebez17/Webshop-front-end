@@ -1,4 +1,5 @@
 export interface User{
+  id: string;
   firstName: string;
   lastName: string;
   adres: string;
@@ -6,4 +7,5 @@ export interface User{
   phone: string;
   email: string;
   password: string;
+  role: string;
 }

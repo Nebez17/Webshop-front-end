@@ -6,6 +6,9 @@ import {StartViewComponent} from "./view/start-view/start-view.component";
 import {LoginScreenComponent} from "./view/login-screen/login-screen.component";
 import {CartComponent} from "./view/cart/cart.component";
 import {SignUpComponent} from "./view/sign-up/sign-up.component";
+import {AdminPanelComponent} from "./view/admin-panel/admin-panel.component";
+
+import {UsersListComponent} from "./view/users-list/users-list.component";
 
 const appRoutes: Routes =[
   {path: '', component: StartViewComponent},
@@ -14,7 +17,9 @@ const appRoutes: Routes =[
   { path: 'shop/:productId', component: ProductDetailsComponent },
   { path: 'login', component: LoginScreenComponent},
   { path: 'cart', component: CartComponent},
-  { path: 'sign-up', component: SignUpComponent }
+  { path: 'sign-up', component: SignUpComponent },
+  { path: 'admin', component: AdminPanelComponent},
+  { path: 'users', component: UsersListComponent}
 ]
 @NgModule({
   imports:[RouterModule.forRoot(appRoutes)],

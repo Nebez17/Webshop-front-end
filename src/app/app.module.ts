@@ -23,6 +23,10 @@ import {MatBadgeModule} from "@angular/material/badge";
 import { CartComponent } from './view/cart/cart.component';
 import { CartItemComponent } from './view/cart/cart-item/cart-item.component';
 import { SignUpComponent } from './view/sign-up/sign-up.component';
+import { AdminPanelComponent } from './view/admin-panel/admin-panel.component';
+import { AdminBarComponent } from './view/admin-panel/admin-bar/admin-bar.component';
+import { UsersListComponent } from './view/users-list/users-list.component';
+import { UsersItemComponent } from './view/users-list/users-item/users-item.component';
 
 
 
@@ -41,6 +45,10 @@ import { SignUpComponent } from './view/sign-up/sign-up.component';
     CartComponent,
     CartItemComponent,
     SignUpComponent,
+    AdminPanelComponent,
+    AdminBarComponent,
+    UsersListComponent,
+    UsersItemComponent,
   ],
   imports: [
     HttpClientModule,

@@ -6,7 +6,9 @@ import {Product} from "../model/product.model";
 
 @Injectable({ providedIn: 'root' })
 export class UserService{
-  private userUrl = "http://localhost:8081/signup";
+  private userSignUrl = "http://localhost:8081/signup";
+  private userUrl = "http://localhost:8081/user";
+
 
   constructor(private http: HttpClient) {
   }
@@ -14,6 +16,9 @@ export class UserService{
     return this.http.get<User[]>(`${this.userUrl}`);
   }
   public addUser(user: User): Observable<User> {
-    return this.http.post<User>(`${this.userUrl}`, user);
+    return this.http.post<User>(`${this.userSignUrl}`, user);
+  }
+  public deleteUser(id: string){
+    return this.http.delete<void>(`${this.userUrl}/${id}`);
   }
 }
