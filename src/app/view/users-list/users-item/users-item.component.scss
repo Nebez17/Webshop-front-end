@@ -2,8 +2,10 @@
 .user-cards-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); // This will create a responsive grid layout
-  gap: 1rem; // Space between cards
-  padding-top: 50px;
+  gap: 2rem; // Space between cards
+  padding-top: 200px;
+  padding-left: 300px;
+  padding-right: 10px;
 }
 
 .user-card {
