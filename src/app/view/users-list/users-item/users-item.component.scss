@@ -27,13 +27,16 @@
     }
 
     .card-body {
+
       .email {
         font-size: 0.9rem; // Smaller email font size
+        padding: 5px;
       }
 
       .role {
-        font-size: 1rem; // Bigger role font size
-        color: #FFFFFF; // White color for role
+        font-size: 1rem;
+        color: #FFFFFF;
+        padding: 3px;
       }
 
       .btn-danger {
