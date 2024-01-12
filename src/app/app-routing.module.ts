@@ -9,6 +9,7 @@ import {SignUpComponent} from "./view/sign-up/sign-up.component";
 import {AdminPanelComponent} from "./view/admin-panel/admin-panel.component";
 
 import {UsersListComponent} from "./view/users-list/users-list.component";
+import {CategorieComponent} from "./view/categorie/categorie.component";
 
 const appRoutes: Routes =[
   {path: '', component: StartViewComponent},
@@ -18,8 +19,9 @@ const appRoutes: Routes =[
   { path: 'login', component: LoginScreenComponent},
   { path: 'cart', component: CartComponent},
   { path: 'sign-up', component: SignUpComponent },
-  { path: 'admin', component: AdminPanelComponent},
-  { path: 'users', component: UsersListComponent}
+  { path: 'admin', component: UsersListComponent},
+  { path: 'users', component: UsersListComponent},
+  { path: 'categories', component: CategorieComponent}
 ]
 @NgModule({
   imports:[RouterModule.forRoot(appRoutes)],

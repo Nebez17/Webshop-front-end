@@ -1,0 +1,32 @@
+<app-admin-bar></app-admin-bar>
+<div class="container">
+  <div class="category-list">
+    <div *ngFor="let category of categories; let i = index" class="category-card">
+      <ng-container *ngIf="editingIndex !== i; else editCategoryTemplate">
+        <div class="category-name">{{ category.name }}</div>
+        <div class="category-actions">
+          <button mat-icon-button (click)="deleteCategorie(category)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-icon-button (click)="startEditing(i, category)">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </div>
+      </ng-container>
+      <ng-template #editCategoryTemplate>
+        <input [(ngModel)]="editedCategoryName" type="text">
+        <button mat-icon-button (click)="updateCategory(category)">
+          <mat-icon>check</mat-icon>
+        </button>
+      </ng-template>
+    </div>
+  </div>
+</div>
+
+<div class="category-creation-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Category Name</mat-label>
+    <input matInput [(ngModel)]="newCategoryName" required>
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="createCategory()" [disabled]="!newCategoryName.trim()">Create</button>
+</div>

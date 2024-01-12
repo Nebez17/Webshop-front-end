@@ -27,6 +27,7 @@ import { AdminPanelComponent } from './view/admin-panel/admin-panel.component';
 import { AdminBarComponent } from './view/admin-panel/admin-bar/admin-bar.component';
 import { UsersListComponent } from './view/users-list/users-list.component';
 import { UsersItemComponent } from './view/users-list/users-item/users-item.component';
+import { CategorieComponent } from './view/categorie/categorie.component';
 
 
 
@@ -49,6 +50,7 @@ import { UsersItemComponent } from './view/users-list/users-item/users-item.comp
     AdminBarComponent,
     UsersListComponent,
     UsersItemComponent,
+    CategorieComponent,
   ],
   imports: [
     HttpClientModule,

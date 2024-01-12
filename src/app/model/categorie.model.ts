@@ -1,4 +1,4 @@
-export interface JwtPayload {
-  id:string;
+export interface Categorie {
+  id?:string;
   name:string
 }

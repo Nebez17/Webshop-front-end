@@ -1,0 +1,65 @@
+.container{
+  margin-top: 200px;
+}
+.category-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .category-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 60%;
+    margin-left: 110px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    .category-name {
+      font-size: 1.2em;
+    }
+
+    .category-actions {
+      button {
+        margin-left: 5px;
+      }
+    }
+
+    input[type="text"] {
+      width: 60%; // Match the width of the category card
+      padding: 8px; // Comfortable padding for typing
+      border: 1px solid #ced4da; // Consistent border color
+      border-radius: 4px; // Rounded corners
+      font-size: 1rem; // Font size similar to other inputs
+      line-height: 1.5; // Adequate line height for readability
+      margin-right: 10px; // Space between input and button
+
+      &:focus {
+        border-color: #80bdff; // Focus border color
+        outline: none; // Removing default focus outline
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); // Focus shadow for visibility
+      }
+    }
+  }
+}
+.category-creation-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 350px; // Adjust this value based on your navbar's height
+  left: 40px;
+  padding: 10px;
+  width: 220px; // Adjust the width as necessary
+
+  mat-form-field {
+    width: 100%; // Ensures the input takes full width
+  }
+
+  button {
+    margin-top: -10px; // Adds space between the input and the button
+  }
+}
+
