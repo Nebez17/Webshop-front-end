@@ -3,6 +3,7 @@ import {ActivatedRoute} from "@angular/router";
 import {ProductService} from "../../service/product.service";
 import {Product} from "../../model/product.model";
 import {CartService} from "../../service/cart.service";
+import {UserStorageService} from "../../service/userStorage.service";
 
 @Component({
   selector: 'app-product-details',
@@ -24,7 +25,8 @@ export class ProductDetailsComponent implements OnInit{
   };
   hardcodedCategories: string[] = ['prime5', 'test'];
 
-  constructor(private route: ActivatedRoute, private productService: ProductService, private cartService:CartService) {
+  constructor(private route: ActivatedRoute, private productService: ProductService, private cartService:CartService,
+              private userStorageService: UserStorageService) {
   }
   ngOnInit(): void {
     this.productId = this.route.snapshot.paramMap.get('productId');
@@ -37,6 +39,9 @@ export class ProductDetailsComponent implements OnInit{
       product => this.product = product,
       error => console.error('Error loading product:', error)
     );
+  }
+  isAdmin(): boolean {
+    return this.userStorageService.isAdmin();
   }
   public deleteProduct(product: Product) {
     if (confirm('Are you sure you want to delete this product?')) {

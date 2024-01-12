@@ -7,7 +7,7 @@ import { ProductsComponent } from './products/products.component';
 import { ProductListsComponent } from './products/product-lists/product-lists.component';
 import { ProductDetailsComponent } from './products/product-details/product-details.component';
 import { ProductItemComponent } from './products/product-lists/product-item/product-item.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AppRoutingModule} from "./app-routing.module";
 import { StartViewComponent } from './view/start-view/start-view.component';
 import { SidebarShopComponent } from './view/sidebar-shop/sidebar-shop.component';
@@ -28,6 +28,7 @@ import { AdminBarComponent } from './view/admin-panel/admin-bar/admin-bar.compon
 import { UsersListComponent } from './view/users-list/users-list.component';
 import { UsersItemComponent } from './view/users-list/users-item/users-item.component';
 import { CategorieComponent } from './view/categorie/categorie.component';
+import {ApiHeadersInterceptor} from "./conf/http_interceptor";
 
 
 
@@ -66,7 +67,14 @@ import { CategorieComponent } from './view/categorie/categorie.component';
     MatToolbarModule,
     MatBadgeModule
   ],
-  providers: [],
+  providers: [
+    LoginScreenComponent,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ApiHeadersInterceptor,
+      multi: true,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 

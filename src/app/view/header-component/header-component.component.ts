@@ -11,31 +11,29 @@ import {CartService} from "../../service/cart.service";
 export class HeaderComponentComponent implements OnInit, OnDestroy {
   isNavbarScrolled: boolean = false;
   isLoggedIn: boolean;
+  isAdmin: boolean = false;
   private loginSubscription: Subscription;
   private cartItemCountSubscription: Subscription;
   cartItemCount: number = 0;
 
-
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    // Detect the scroll position and toggle the class accordingly
     this.isNavbarScrolled = window.scrollY > 0;
   }
-  constructor(private userStorageService: UserStorageService,
-              private cartService: CartService) {
 
-  }
+  constructor(private userStorageService: UserStorageService,
+              private cartService: CartService) {}
 
   ngOnInit(): void {
     this.loginSubscription = this.userStorageService.isLoggedInObservable.subscribe(status => {
       this.isLoggedIn = status;
+      this.isAdmin = this.userStorageService.isAdmin(); // Check if user is admin
     });
 
     this.cartItemCountSubscription = this.cartService.getCartItemCountObservable().subscribe(count => {
       this.cartItemCount = count;
     });
   }
-
 
   logout(): void {
     this.userStorageService.signOut();
@@ -47,5 +45,4 @@ export class HeaderComponentComponent implements OnInit, OnDestroy {
       this.cartItemCountSubscription.unsubscribe();
     }
   }
-
 }

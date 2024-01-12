@@ -10,10 +10,10 @@
     </div>
     <button class="add-to-cart-btn" (click)="addToCart(product)">Add to Cart</button>
     <div class="button-container">
-      <button (click)="openEditModal()" class="update-button">
+      <button *ngIf="isAdmin()" (click)="openEditModal()" class="update-button">
         <mat-icon>edit</mat-icon>
       </button>
-      <button (click)="deleteProduct(product)" class="delete-button">
+      <button *ngIf="isAdmin()" (click)="deleteProduct(product)" class="delete-button">
         <mat-icon>delete</mat-icon>
       </button>
     </div>
