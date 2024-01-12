@@ -34,43 +34,5 @@ export class AuthService {
     );
   }
 
-  logout() {
-    this.userStorageService.signOut();
-    this.session = undefined;
-    // redirect to landing page
-  }
-
-  register(signupRequest: any): Observable<any> {
-    return this.http.post(this.productsUrl + "signup", signupRequest);
-  }
-
-
-
-  getOrderByTrackingId(trackingId: number): Observable<any> {
-    return this.http.get<[]>(`${this.productsUrl}order/${trackingId}`)
-      .pipe(
-        tap((_) => this.log('Order fetched successfully')),
-        catchError(this.handleError<[]>('Error getting Order', []))
-      );
-  }
-
-  private createAuthorizationHeader(): HttpHeaders {
-    return new HttpHeaders().set(
-      'Authorization',
-      'Bearer ' + UserStorageService.getToken()
-    );
-  }
-
-  private log(message: string): void {
-    console.log(`User Auth Service: ${message}`);
-  }
-
-  private handleError<T>(operation = 'operation', result?: T): any {
-    return (error: any): Observable<T> => {
-      console.error(error);
-      this.log(`${operation} failed: ${error.message}`);
-      return of(result as T);
-    };
-  }
 }
 

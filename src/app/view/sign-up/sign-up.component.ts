@@ -67,7 +67,7 @@ export class SignUpComponent {
           console.log(response);
         }
       );
-      this.router.navigateByUrl('/shop');
+      this.router.navigateByUrl('/login');
     } else {
       console.log('Form is invalid. Please check the form for errors.');
     }

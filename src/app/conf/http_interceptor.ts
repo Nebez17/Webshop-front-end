@@ -1,27 +1,28 @@
 import { Injectable } from '@angular/core';
-import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
+import {HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {UserStorageService} from "../service/userStorage.service";
 
 @Injectable()
 export class ApiHeadersInterceptor implements HttpInterceptor {
-  constructor() {}
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    const isAuthenticationRequest: boolean = request.url.endsWith('/signup');
-    const isRegister: boolean = request.url.endsWith('/auth/register');
-    const getProduct: boolean = request.url.endsWith('/product');
-    const getCategory: boolean = request.url.endsWith('/category');
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    // List of URLs that don't require a JWT token
+    const openUrls = ['https://irpwcwebshop.online:8081/product',
+      'https://irpwcwebshop.online:8081/signup'];
 
-
-
-    if (!isAuthenticationRequest && !getProduct && !isRegister  && !getCategory ) {
-      const token: string = localStorage.getItem('loginToken') ?? '';
-      const newCloneRequest: HttpRequest<any> = request.clone({
-        setHeaders: {
-          Authorization: `Bearer ${token}`
-        }
-      });
-      return next.handle(newCloneRequest);
+    // Check if the request URL is not in the openUrls list
+    if (!openUrls.includes(req.url)) {
+      // If not in openUrls, add the Authorization header
+      const authToken = UserStorageService.getToken(); // Static method call
+      if (authToken) {
+        const authReq = req.clone({
+          setHeaders: { Authorization: `Bearer ${authToken}` }
+        });
+        return next.handle(authReq);
+      }
     }
-    return next.handle(request);
+
+    // For openUrls, pass the request without modifying it
+    return next.handle(req);
   }
 }

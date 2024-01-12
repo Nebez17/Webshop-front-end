@@ -29,6 +29,7 @@ import { UsersListComponent } from './view/users-list/users-list.component';
 import { UsersItemComponent } from './view/users-list/users-item/users-item.component';
 import { CategorieComponent } from './view/categorie/categorie.component';
 import {ApiHeadersInterceptor} from "./conf/http_interceptor";
+import {RecaptchaFormsModule, RecaptchaModule} from "ng-recaptcha";
 
 
 
@@ -65,7 +66,9 @@ import {ApiHeadersInterceptor} from "./conf/http_interceptor";
     MatButtonModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatBadgeModule
+    MatBadgeModule,
+    RecaptchaModule,
+    RecaptchaFormsModule
   ],
   providers: [
     LoginScreenComponent,
