@@ -7,7 +7,7 @@ import {UserStorageService} from "../service/userStorage.service";
 export class ApiHeadersInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // List of URLs that don't require a JWT token
-    const openUrls = ['https://irpwcwebshop.online:8081/product',
+    const openUrls = [
       'https://irpwcwebshop.online:8081/signup'];
 
     // Check if the request URL is not in the openUrls list

@@ -16,16 +16,19 @@
   order: 3; /* Ensures the image is placed at the end */
   max-width: 100px; /* Adjust as needed */
   height: 300px; /* Maintain aspect ratio */
-  margin-top: -30px;
-
+  margin-bottom: 40px; /* Adjust or remove this margin to control spacing */
+  display: block;
+  position: absolute;
+  margin-left: 700px;
+  align-items: flex-end;
 }
 
 .mat-card-image {
   display: flex;
-  max-width: 200px;
+  max-width: 240px;
   justify-content: center;
   height: 200px;
-  padding-left: 10px;
+  padding-left: 20px;
   vertical-align: center;
   float: left;
   padding-bottom: 120px;
@@ -41,8 +44,12 @@
 }
 
 .mat-card-text {
-  padding: 20px; // Adjust padding for better spacing inside the card
-
+  margin-top: -320px; // Adjust padding for better spacing inside the card
+  margin-left:100px;
+  margin-right: 90px;
+  justify-content: space-between;
+  align-items: flex-start;
+  display: flex;
   h2 {
     margin-top: 0;
     margin-bottom: 10px; // Space between the title and the description
@@ -91,9 +98,8 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
   text-align: left;
-  position: absolute;
-  top: 60%;
-  left: 50%;
+  margin-top: 390px;
+  margin-left: 50px;
   transform: translate(-40%, -50%); /* Adjust translate values */
   max-width: 300px;  /* Maximum width of the card */
   width: 100%;  /* Responsive width */
@@ -209,14 +215,17 @@
   width: 300px; /* Fixed width */
   padding: 10px 20px; /* Vertical and horizontal padding */
   border: none;
-  margin-right: 80px;
-  margin-bottom: 40px;
+  margin-right: 100px;
+  margin-left: -70px;
+  margin-top: 500px;
   border-radius: 4px;
   font-size: 1em;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
   text-align: center; /* Ensure text is centered */
-  display: inline-block; /* Allows setting a width */
+  display: flex; /* Allows setting a width */
+  position: absolute;
+
 
 
   &:hover {

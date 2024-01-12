@@ -5,14 +5,8 @@
       <input type="checkbox" id="category1" (change)="toggleCategory('category1')">
       <label for="category1">Prime</label>
     </div>
-    <div>
-      <input type="checkbox" id="category2" (change)="toggleCategory('category2')">
-      <label for="category2">Feastables</label>
-    </div>
-    <div>
       <input type="checkbox" id="category3" (change)="toggleCategory('category3')">
       <label for="category3">Sticks</label>
-    </div>
     <div *ngIf="isAdmin">
       <button type="button" (click)="toggleCreateProductVisibility()">Create Product</button>
     </div>

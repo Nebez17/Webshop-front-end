@@ -15,6 +15,7 @@ export class LoginScreenComponent {
   hidePassword = true;
   showLoginScreen: boolean = true;
   captchaResponse: string;
+  protected aFormGroup: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -27,20 +28,16 @@ export class LoginScreenComponent {
     this.loginForm = this.formBuilder.group({
       email: [null, [Validators.email, Validators.required]],
       password: [null, [Validators.required]],
-      recaptchaReactive: [null, Validators.required]
-    });
+
+      })
   }
-  onCaptchaResolved(captchaResponse: string): void {
-    this.captchaResponse = captchaResponse;
-    this.loginForm.controls['recaptchaReactive'].setValue(captchaResponse ? true : null);
-  }
+
 
   togglePasswordVisibility() {
     this.hidePassword = !this.hidePassword;
   }
 
   onSubmit(): void {
-    if (this.loginForm.valid && this.captchaResponse) {
       for (const i in this.loginForm.controls) {
         this.loginForm.controls[i].markAsDirty();
         this.loginForm.controls[i].updateValueAndValidity();
@@ -73,7 +70,6 @@ export class LoginScreenComponent {
         }
       );
     }
-  }
 }
 
 

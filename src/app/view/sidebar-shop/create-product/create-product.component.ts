@@ -10,7 +10,7 @@ import { ProductService } from "../../../service/product.service";
 export class CreateProductComponent {
   productForm: FormGroup;
   isFormVisible: boolean = true;
-  categoryOptions = ['Prime', 'Feastable', 'Sticks'];
+  categoryOptions = ['Prime', 'Sticks'];
   selectedCategories: string[] = [];
   showGeneralErrorMessage: boolean = false;
 

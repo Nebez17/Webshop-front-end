@@ -23,7 +23,7 @@ export class ProductDetailsComponent implements OnInit{
     stock: 0,
     category: []
   };
-  hardcodedCategories: string[] = ['prime5', 'test'];
+  hardcodedCategories: string[] = ['Prime', 'Sticks'];
 
   constructor(private route: ActivatedRoute, private productService: ProductService, private cartService:CartService,
               private userStorageService: UserStorageService) {
