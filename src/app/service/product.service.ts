@@ -30,7 +30,7 @@ export class ProductService {
   public deleteProduct(id: string){
     return this.http.delete<void>(`${this.productsUrl}/${id}`);
   }
-  updateProduct(id: string, product: Product): Observable<Product> {
+  public updateProduct(id: string, product: Product): Observable<Product> {
     return this.http.put<Product>(`${this.productsUrl}/${id}`, product);
   }
 }

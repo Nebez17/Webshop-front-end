@@ -57,32 +57,30 @@
 
     justify-content: flex-end;
     float: right;
-    left: 24%;
+    left: 21%;
     top: 74%;
     transform: translate(-50%, -50%);
   }
   .update-button, .delete-button {
     margin-top: 200px;
-
-
+    margin-left: 6px;
     padding: 4px 4px; // Padding inside the buttons
     border: none; // Remove default browser styling
     border-radius: 4px; // Rounded corners for the buttons
     cursor: pointer; // Cursor change to indicate clickable area
-    background-color: #007bff;
+    background-color: black;
     color: white;
-    font-size: 11px;
 
     &:hover {
-      background-color: #0056b3; // Darker shade on hover
+      background-color: darkgray; // Darker shade on hover
     }
   }
 
   .delete-button {
-    background-color: #dc3545; // Different color for the delete button
+    background-color: black; // Different color for the delete button
 
     &:hover {
-      background-color: #bd2130; // Darker shade on hover
+      background-color: darkgray; // Darker shade on hover
     }
   }
 }
@@ -115,7 +113,6 @@
   }
 }
 
-
 .modal {
   display: none;
   position: fixed;
@@ -123,10 +120,10 @@
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 1000;
-  width: 80%;
+  width: 60%;
   max-width: 600px;
   background: white;
-  padding: 20px;
+  padding: 15px; /* Reduced padding */
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -135,44 +132,97 @@
   display: block; /* Show when this class is applied */
 }
 
-/* Style the backdrop to cover the entire screen */
-.modal-backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-}
+.modal-content {
+  .modal-header {
+    padding: 10px 10px;
+    border-bottom: 1px solid #eaeaea;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f8f8f8;
 
+    h5 {
+      margin: 0;
+      font-size: 1.2em;
+    }
+
+    .close {
+      border: none;
+      background: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #333;
+
+      &:hover {
+        color: #ff0000; // Red color on hover for close button
+      }
+    }
+  }
+
+  .modal-body {
+    padding: 10px; /* Reduced padding */
+
+    .form-group {
+      margin-bottom: 10px; /* Reduced margin */
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      input[type="text"], input[type="number"], select {
+        width: 100%;
+        padding: 5px 12px; /* Increased size */
+        font-size: 1rem;
+        color: #495057;
+        background-color: #fff;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+
+        &:focus {
+          border-color: #80bdff;
+          box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+      }
+
+      input[type="text"][disabled] {
+        background-color: #e9ecef; /* Light gray background */
+        color: #6c757d; /* Darker text color */
+        cursor: not-allowed;
+      }
+    }
+
+    .btn-primary {
+      width: 100%; /* Full width */
+      padding: 5px 0; /* Increased padding */
+      font-size: 1.1rem; /* Larger font size */
+      border-radius: 4px; /* Rounded corners */
+      color: white;
+      background: black;
+    }
+  }
+}
 .add-to-cart-btn {
   background-color: black;
   color: white;
-  padding: 10px 110px;
+  width: 300px; /* Fixed width */
+  padding: 10px 20px; /* Vertical and horizontal padding */
   border: none;
+  margin-right: 80px;
+  margin-bottom: 40px;
   border-radius: 4px;
   font-size: 1em;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
-  margin-right: 80px;
-  margin-bottom: 30px;
+  text-align: center; /* Ensure text is centered */
+  display: inline-block; /* Allows setting a width */
+
 
   &:hover {
-    background-color: #333; // Slightly lighter black on hover
-    color: #ddd; // Slightly darker white on hover
+    background-color: #333; /* Slightly lighter black on hover */
+    color: #ddd; /* Slightly darker white on hover */
   }
 
-  &:active {
-    background-color: #000; // Pure black when clicked
-    color: #fff;
-  }
-
-  &:disabled {
-    background-color: #555;
-    color: #ccc;
-    cursor: not-allowed;
-  }
 }
-
 

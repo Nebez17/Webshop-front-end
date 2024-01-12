@@ -11,10 +11,18 @@ import {CartService} from "../../service/cart.service";
 })
 export class ProductDetailsComponent implements OnInit{
   productId: string;
-  product: Product;
+  product: Product = {} as Product;// Initialize with default values or an empty object
   showUpdateModal: boolean = false;
-
-  productToUpdate :Product
+  productToUpdate: Product = {
+    id: '',
+    description: '',
+    productName: '',
+    price: 0,
+    imageURL: '',
+    stock: 0,
+    category: []
+  };
+  hardcodedCategories: string[] = ['prime5', 'test'];
 
   constructor(private route: ActivatedRoute, private productService: ProductService, private cartService:CartService) {
   }
@@ -25,8 +33,10 @@ export class ProductDetailsComponent implements OnInit{
   }
 
   private loadProduct(): void {
-    this.productService.find(this.productId)
-      .subscribe(product => this.product = product);
+    this.productService.find(this.productId).subscribe(
+      product => this.product = product,
+      error => console.error('Error loading product:', error)
+    );
   }
   public deleteProduct(product: Product) {
     if (confirm('Are you sure you want to delete this product?')) {
@@ -44,17 +54,26 @@ export class ProductDetailsComponent implements OnInit{
 
 
   public updateProduct() {
-    this.productService.updateProduct(this.productId, this.productToUpdate).subscribe(
-      (resp) => {
-      },
-      (err) => {
-        console.error('Error updating product:', err);
-      }
-    );
+    if (this.productToUpdate) {
+      this.productService.updateProduct(this.productId, this.productToUpdate)
+        .subscribe(
+          updatedProduct => {
+            console.log('Product updated:', updatedProduct);
+            this.loadProduct(); // Reload the product details
+            this.closeEditModal(); // Close the edit modal
+          },
+          error => {
+            console.error('Error updating product:', error);
+          }
+        );
+    }
   }
   public openEditModal(): void {
     this.showUpdateModal = true;
-    this.productToUpdate = { ...this.product };
+    if (this.product) {
+      this.productToUpdate = { ...this.product };
+      this.productToUpdate.category = this.hardcodedCategories.slice(0, 1); // Assign the first category as default
+    }
   }
 
   public closeEditModal(): void {
