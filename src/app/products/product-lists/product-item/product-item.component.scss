@@ -9,23 +9,22 @@
   display: block;
   margin: 0 auto;
 }
+
 .product a {
-  text-decoration: none; // Removes the underline from links
+  text-decoration: none;
 
   .list-group-item-heading, .list-group-item-text {
-    color: black; // Sets the color to #333333
-    // Any other styling you want to apply to these elements
+    color: black;
   }
 }
 
 .product {
   padding-top: 50px;
-  height: 220px; /* Fixed height for the container */
+  height: 220px;
   display: inline-block;
   margin: 0 10px 20px;
   padding-left: 20px;
-  text-align: center; /* Centering the text for each product */
-
+  text-align: center;
 }
 
 .col-md-4, .col-xl-4 {
@@ -61,5 +60,10 @@ button {
     background-color: #555;
     color: #ccc;
     cursor: not-allowed;
+  }
+}
+@media (max-width: 850px) {
+  .col-md-4, .col-xl-4 {
+    width: calc(100% - 20px); // Adjust this value as needed
   }
 }
