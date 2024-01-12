@@ -69,6 +69,9 @@ import {ApiHeadersInterceptor} from "./conf/http_interceptor";
   ],
   providers: [
     LoginScreenComponent,
+    ProductListsComponent,
+    ProductItemComponent,
+    ProductDetailsComponent,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ApiHeadersInterceptor,

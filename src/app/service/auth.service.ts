@@ -8,7 +8,7 @@ import {UserStorageService} from "./userStorage.service";
 })
 export class AuthService {
   session: any;
-  private productsUrl = "http://localhost:8081/";
+  private productsUrl = "https://irpwcwebshop.online:8081/";
   constructor(
     private http: HttpClient,
     private userStorageService: UserStorageService

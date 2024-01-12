@@ -1,23 +1,27 @@
 import { Injectable } from '@angular/core';
-import { HttpInterceptor, HttpHandler, HttpRequest, HttpHeaders } from '@angular/common/http';
-import {UserStorageService} from "../service/userStorage.service";
+import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable()
-export class ApiHeadersInterceptor implements HttpInterceptor {
-  intercept(req: HttpRequest<any>, next: HttpHandler) {
-    let headers = new HttpHeaders({
-      'Content-Type': 'application/vnd.spine.api.v2+json',
-      'Accept': 'application/vnd.spine.api.v2+json'
-    });
+export class CustomerInterceptorInterceptor implements HttpInterceptor {
+  constructor() {}
+  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+    const isAuthenticationRequest: boolean = request.url.endsWith('/signup');
+    const isRegister: boolean = request.url.endsWith('/auth/register');
+    const getProduct: boolean = request.url.endsWith('/product');
+    const getCategory: boolean = request.url.endsWith('/category');
 
-    if (req.url.indexOf('/auth/') < 0) {
-      headers = headers.append('Authorization', 'Bearer ' + UserStorageService.getToken());
+
+
+    if (!isAuthenticationRequest && !getProduct && !isRegister  && !getCategory ) {
+      const token: string = localStorage.getItem('loginToken') ?? '';
+      const newCloneRequest: HttpRequest<any> = request.clone({
+        setHeaders: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+      return next.handle(newCloneRequest);
     }
-
-    const modifiedReq = req.clone({
-      headers: headers,
-    });
-
-    return next.handle(modifiedReq);
+    return next.handle(request);
   }
 }

@@ -6,8 +6,8 @@ import {Product} from "../model/product.model";
 
 @Injectable({ providedIn: 'root' })
 export class UserService{
-  private userSignUrl = "http://localhost:8081/signup";
-  private userUrl = "http://localhost:8081/user";
+  private userSignUrl = "https://irpwcwebshop.online:8081/signup";
+  private userUrl = "https://irpwcwebshop.online:8081/user";
   private usersSubject = new BehaviorSubject<User[]>([]);
   users$ = this.usersSubject.asObservable();
 

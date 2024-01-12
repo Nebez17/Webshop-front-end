@@ -6,7 +6,7 @@ import {Product} from "../model/product.model";
 
 @Injectable({ providedIn: 'root' })
 export class ProductService {
-  private productsUrl = "http://localhost:8081/product";
+  private productsUrl = "https://irpwcwebshop.online:8081/product";
 
   constructor(private http: HttpClient) {
   }

@@ -7,7 +7,7 @@ import {User} from "../model/user.model";
 
 @Injectable({ providedIn: 'root' })
 export class CategorieService {
-  private categorieUrl = "http://localhost:8081/category";
+  private categorieUrl = "https://irpwcwebshop.online:8081/category";
   private categoriesSubject = new BehaviorSubject<Categorie[]>([]);
   public categories$ = this.categoriesSubject.asObservable();
 
