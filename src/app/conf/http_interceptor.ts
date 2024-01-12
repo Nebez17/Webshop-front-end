@@ -3,7 +3,7 @@ import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/c
 import { Observable } from 'rxjs';
 
 @Injectable()
-export class CustomerInterceptorInterceptor implements HttpInterceptor {
+export class ApiHeadersInterceptor implements HttpInterceptor {
   constructor() {}
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const isAuthenticationRequest: boolean = request.url.endsWith('/signup');
